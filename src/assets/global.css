@@ -1,5 +1,7 @@
 * {
     --main-bg-color: #1a1b27;
-    color: #38bdae;
+    --main-text-color: #38bdae; 
+    --checked: #ba8ded;
+    color: var(--main-text-color);
     background-color: var(--main-bg-color);
 }
