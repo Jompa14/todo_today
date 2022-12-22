@@ -1,12 +1,11 @@
 <template lang="html">
     <div class="wrapper">
         <h2>Todo Today</h2>
-        <v-checkbox
-            label="teste"
-            color="#ba8ded"
-            value="teste"
-            hide-details
-        ></v-checkbox>
+        <label class="container">
+            One
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
     </div>
 </template>
 
@@ -16,5 +15,69 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 9px;
+    left: 7px;
+    height: 15px;
+    width: 15px;
+    border-radius: 4px;
+    background-color: inherit;
+}
+
+/* On mouse-over, add a grey background color */
+// .container:hover input ~ .checkmark {
+//     background-color: #ccc;
+// }
+
+/* When the checkbox is checked, add a background color*/
+.container input:checked ~ .checkmark {
+    background-color: #ba8ded;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+}
+
 </style>
