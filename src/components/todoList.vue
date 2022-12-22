@@ -21,7 +21,7 @@ export default {
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 16px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -40,12 +40,13 @@ export default {
 /* Create a custom checkbox */
 .checkmark {
     position: absolute;
-    top: 9px;
+    top: 4px;
     left: 7px;
     height: 15px;
     width: 15px;
     border-radius: 4px;
-    background-color: inherit;
+    border: 1px purple;
+    background-color: #433d61;
 }
 
 /* On mouse-over, add a grey background color */
@@ -72,12 +73,16 @@ export default {
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
-    left: 9px;
-    top: 5px;
+    top:2px;
+    left:5px;
     width: 5px;
     height: 10px;
-    border: solid white;
+    border: solid var(--main-bg-color);
     border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    color: #1a1b27;
 }
 
 </style>

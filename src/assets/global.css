@@ -1,4 +1,5 @@
 * {
+    --main-bg-color: #1a1b27;
     color: #38bdae;
-    background-color: #1a1b27;
+    background-color: var(--main-bg-color);
 }
