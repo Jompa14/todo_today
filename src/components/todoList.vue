@@ -1,28 +1,76 @@
 <template lang="html">
     <div class="wrapper">
         <h2>Todo Today</h2>
-        <label 
-            class="container"
-            
-        >
-            One
+        <div class="addTask">
+            <label>
+                <input
+                    v-model="task" 
+                    type="text"
+                >
+            </label>
+            <button 
+                type="button" 
+                name="button"
+                class="addTaskButton"
+                @click="addTask"
+            >
+                Add Task
+            </button>
+        </div>
+        <div class="tasks">
+            <label 
+                v-for="(task, index) in tasks"
+                :key="index"
+                class="container"
+            >
+                {{task}}
             <input type="checkbox">
             <span class="checkmark"></span>
         </label>
+        </div>
+        <div class="manageTasks">
+            <button 
+                class="manageButton"
+                type="button"
+            >
+                Done
+            </button>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
     data: function () {
-    return {
-      tasks: [],
-    }
-  },
+        return {
+          tasks: [],
+          task: '',
+        }
+      },
+    methods: {
+        addTask: function () {
+            this.tasks.push(this.task);
+            this.task = '';
+        }
+    },
 }
 </script>
 
 <style lang="scss" scoped>
+@mixin button {
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 10px;
+}
+.addTaskButton {
+    @include button;
+    border: 1px solid var(--main-text-color);
+}
+.manageButton {
+    @include button;
+    background-color: green;
+    color: white;
+}
 .container {
     display: block;
     position: relative;
@@ -34,16 +82,16 @@ export default {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    /* Hide the browser's default checkbox */
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
 }
 
-/* Hide the browser's default checkbox */
-.container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
 
 /* Create a custom checkbox */
 .checkmark {
