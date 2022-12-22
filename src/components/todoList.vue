@@ -1,7 +1,10 @@
 <template lang="html">
     <div class="wrapper">
         <h2>Todo Today</h2>
-        <label class="container">
+        <label 
+            class="container"
+            
+        >
             One
             <input type="checkbox">
             <span class="checkmark"></span>
@@ -11,6 +14,11 @@
 
 <script>
 export default {
+    data: function () {
+    return {
+      tasks: [],
+    }
+  },
 }
 </script>
 
