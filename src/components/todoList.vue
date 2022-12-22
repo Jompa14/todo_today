@@ -1,6 +1,13 @@
 <template lang="html">
-    <h2>Todo Today</h2>
-    
+    <div class="wrapper">
+        <h2>Todo Today</h2>
+        <v-checkbox
+            label="teste"
+            color="#ba8ded"
+            value="teste"
+            hide-details
+        ></v-checkbox>
+    </div>
 </template>
 
 <script>
